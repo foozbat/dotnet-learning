@@ -7,12 +7,17 @@ var envVars = DotEnv.Read();
 
 string webhookUrl = envVars["WEBHOOK_URL"];
 
+Console.Write("Enter your email: ");
+string email = Console.ReadLine() ?? "";
+Console.Write("Enter your message: ");
+string message = Console.ReadLine() ?? "";
+
 // sample data
 var myData = new MyData
 {
-    Id = "12345",
-    Email = "test@test.com",
-    Message = "Hello from .NET!"
+    Id = Random.Shared.Next(),
+    Email = email,
+    Message = message
 };
 
 // send request to zapier webhook
